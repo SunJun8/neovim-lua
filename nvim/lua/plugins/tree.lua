@@ -26,13 +26,42 @@ g.nvim_tree_show_icons = {
 }
 
 g.nvim_tree_icons = {
-	default = "‣ "
+  default = '',
+  symlink = '',
+  git = {
+    unstaged = "✗",
+    staged = "✓",
+    unmerged = "",
+    renamed = "➜",
+    untracked = "★",
+    deleted = "",
+    ignored = "◌"
+  },
+  folder = {
+    arrow_open = "",
+    arrow_closed = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
+  }
 }
 
 require('nvim-tree').setup {
-  open_on_setup = true,
-  auto_close = false,
-  update_cwd = true,
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = true,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
   actions = {
     open_file = {
       resize_window = false,
@@ -40,13 +69,9 @@ require('nvim-tree').setup {
       window_picker = { enable = false },
     },
   },
-  system_open = {
-    cmd  = nil,
-    args = {}
-  },
   filters = {
     dotfiles = true,
-    custom = { '.git', 'node_modules', '.cache', '.bin' },
+    custom = { '.git', 'node_modules', '.cache', '.vscode' },
   },
-  view = { width = 32 },
+  view = { width = 40 },
 }

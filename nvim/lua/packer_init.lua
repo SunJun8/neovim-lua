@@ -19,11 +19,31 @@ local packer = require 'packer'
 return packer.startup(function()
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
-  -- File explorer
-  use 'kyazdani42/nvim-tree.lua'
+  -- Easily speed up your neovim startup time
+  use 'nathom/filetype.nvim'
+  use {
+    'lewis6991/impatient.nvim',
+    config = function()
+      require('impatient')
+    end
+  }
 
-  -- Indent line
-  use 'lukas-reineke/indent-blankline.nvim'
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
+  }
+
+  -- FZF
+  use {
+    'junegunn/fzf.vim',
+    requires = {
+      'junegunn/fzf',
+    },
+    run = 'cd ~/.nvim-fzf && ./install --all',
+  }
 
   -- Autopair
   use {
@@ -33,42 +53,67 @@ return packer.startup(function()
     end
   }
 
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
+  -- cscope fzf
+  use 'SunJun8/fzf_cscope.vim'
 
-  -- Tag viewer
-  use 'liuchengxu/vista.vim'
+  --lastplace
+  use 'farmergreg/vim-lastplace'
+
+  -- multi action
+  use 'mg979/vim-visual-multi'
 
   -- Treesitter interface
   use 'nvim-treesitter/nvim-treesitter'
+  use 'p00f/nvim-ts-rainbow'
+
+  -- cursorline
+  use 'yamatsum/nvim-cursorline'
 
   -- Color schemes
-  use 'navarasu/onedark.nvim'
+  use 'sainnhe/sonokai'
 
-  use 'tanvirtin/monokai.nvim'
-
-  use { 'rose-pine/neovim', as = 'rose-pine' }
+  -- tab
+  use 'romgrk/barbar.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'ojroques/nvim-lspfuzzy'
+  use 'tami5/lspsaga.nvim'
+  use 'nvim-lua/lsp-status.nvim'
 
   -- Autocomplete
   use {
     'hrsh7th/nvim-cmp',
     requires = {
-      'L3MON4D3/LuaSnip',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
     },
   }
 
-  -- Statusline
+  -- symbol outline
+  use 'simrat39/symbols-outline.nvim'
+
+  -- 注释
   use {
-    'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
+
+  -- Search hightlight
+  use 'kevinhwang91/nvim-hlslens'
+
+  -- Replace
+  use 'windwp/nvim-spectre'
+
+  -- Statusline
+  use 'nvim-lualine/lualine.nvim'
 
   -- git labels
   use {
