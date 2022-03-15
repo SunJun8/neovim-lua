@@ -42,7 +42,7 @@ return packer.startup(function()
     requires = {
       'junegunn/fzf',
     },
-    run = 'cd ~/.nvim-fzf && ./install --all',
+    -- run = 'cd ~/.nvim-fzf && ./install --all',
   }
 
   -- Autopair

@@ -73,5 +73,5 @@ require('nvim-tree').setup {
     dotfiles = true,
     custom = { '.git', 'node_modules', '.cache', '.vscode' },
   },
-  view = { width = 40 },
+  view = { width = 35 },
 }

@@ -6,10 +6,11 @@
 -- Plugin: nvim-cmp
 -- url: https://github.com/hrsh7th/nvim-cmpa
 
+local theme = require 'plugins/lualine/theme'
 
 require('lualine').setup {
     options = {
-      theme = 'gruvbox-material',
+      theme = theme,
     },
     sections = {
       lualine_a = {'mode'},

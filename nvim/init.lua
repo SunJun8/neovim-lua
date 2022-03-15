@@ -8,11 +8,11 @@ Website: https://github.com/brainfucksec/neovim-lua
 --]]
 
 -- Import Lua modules
+require('packer_init')
 require('core/settings')
 require('core/keymaps')
-require('packer_init')
 require('plugins/tree')
-require('plugins/nvim-lualine')
+require('plugins/lualine/nvim-lualine')
 require('plugins/nvim-cmp')
 require('plugins/nvim-lspconfig')
 require('plugins/nvim-treesitter')

@@ -23,26 +23,24 @@ buf_set_keymap('n', '<leader>ld', '<cmd>lua require\'lspsaga.provider\'.preview_
 
 
 -- Setup lspconfig by lsp-install.
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
-  local opts = {}
+  local opt = {}
 
   -- (optional) Customize the options passed to the server
   if server.name == "clangd" then
-    opts.cmd = {"/home/jokeo/.local/share/nvim/lsp_servers/clangd/clangd", "--background-index"}
+    opt.cmd = {"clangd", "--background-index"}
   end
 
-  opts.capabilities = capabilities
+  opt.capabilities = capabilities
 
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
+  server:setup(opt)
   end
 )
 
