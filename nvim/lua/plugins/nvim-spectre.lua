@@ -62,5 +62,36 @@ spectre.setup({
     },
     -- you can put your mapping here it only use normal mode
   },
+  find_engine = {
+    -- rg is map with finder_cmd
+    ['rg'] = {
+      cmd = "rg",
+      -- default args
+      args = {
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+      },
+      options = {
+        ['ignore-case'] = {
+          value= "--ignore-case",
+          icon="[I]",
+          desc="ignore case"
+        },
+        ['hidden'] = {
+          value={
+            "--hidden",
+            "--no-ignore"
+          },
+          desc="hidden file",
+          icon="[H]"
+        },
+        -- you can put any rg search option you want here it can toggle with
+        -- show_option function
+      }
+    }
+  }
 })
 
