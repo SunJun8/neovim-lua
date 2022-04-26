@@ -14,7 +14,6 @@
 --- See: `help NvimTree`
 local g = vim.g
 
-g.nvim_tree_indent_markers = 1
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_respect_buf_cwd = 1
@@ -60,6 +59,11 @@ require('nvim-tree').setup {
   update_to_buf_dir   = {
     enable = true,
     auto_open = true,
+  },
+  renderer = {
+    indent_markers = {
+      enable = true
+    },
   },
   actions = {
     open_file = {

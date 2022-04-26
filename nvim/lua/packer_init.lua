@@ -67,7 +67,12 @@ return packer.startup(function()
   use 'p00f/nvim-ts-rainbow'
 
   -- cursorline
-  use 'yamatsum/nvim-cursorline'
+  use {
+    'yamatsum/nvim-cursorline',
+    config = function()
+      require('nvim-cursorline').setup()
+    end
+  }
 
   -- Color schemes
   use 'sainnhe/sonokai'
@@ -98,11 +103,11 @@ return packer.startup(function()
   -- symbol outline
   use 'simrat39/symbols-outline.nvim'
 
-  -- 注释
+  -- Comment
   use {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+        require('Comment').setup()
     end
   }
 
