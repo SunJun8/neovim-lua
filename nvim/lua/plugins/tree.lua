@@ -56,10 +56,6 @@ require('nvim-tree').setup {
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
   renderer = {
     indent_markers = {
       enable = true
@@ -76,5 +72,8 @@ require('nvim-tree').setup {
     dotfiles = true,
     custom = { '.git', 'node_modules', '.cache', '.vscode' },
   },
-  view = { width = 35 },
+  view = {
+    width = 35,
+    side = "left",
+  },
 }

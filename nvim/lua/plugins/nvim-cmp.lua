@@ -6,10 +6,11 @@
 -- url: https://github.com/hrsh7th/nvim-cmp
 
 
+local opt = vim.opt
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
-vim.cmd('set completeopt=menu,menuone,noselect')
+opt.completeopt = menu, menuone, noselect
 
 cmp.setup {
   -- Load snippet support

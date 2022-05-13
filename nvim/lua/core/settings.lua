@@ -36,9 +36,8 @@ opt.ruler = true                      -- 显示当前行号及列号
 opt.cindent = true                    -- C 缩进
 opt.hlsearch = true                   -- 高亮搜索
 opt.incsearch = true                  -- 键入搜索
-
-g.noshowmode = true                   -- 不显示status
-g.nofoldenable = true                 -- 取消自动折叠
+opt.foldenable = false                -- 取消自动折叠
+opt.showmode = false                  -- 不显示status
 
 -----------------------------------------------------------
 -- Neovim theme

@@ -7,7 +7,7 @@
 -- =============================================================================
 
 local configuration = vim.fn['sonokai#get_configuration']()
-local palette = vim.fn['sonokai#get_palette'](configuration.style)
+local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
 
 return {
   normal = {
