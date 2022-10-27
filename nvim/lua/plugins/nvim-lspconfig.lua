@@ -24,7 +24,7 @@ buf_set_keymap('n', '<leader>ld', '<cmd>lua require\'lspsaga.provider\'.preview_
 
 
 -- Setup lspconfig by lsp-install.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for all installed servers.
