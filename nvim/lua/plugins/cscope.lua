@@ -9,7 +9,11 @@
 local exec = vim.api.nvim_exec 	      -- Execute Vimscript
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
+  local options = {
+    noremap = true,
+    silent = true
+  }
+
   if opts then
     options = vim.tbl_extend('force', options, opts)
   end
@@ -18,18 +22,20 @@ end
 
 map('n', '<F5>', ':!cscope -Rbcq<CR>:cs reset<CR><CR>', { noremap = false })
 
-exec ([[
+exec (
+  [[
     set csprg=/usr/bin/cscope
     set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
-		set csto=0
-		set cst
-		if filereadable("cscope.out")
-		    silent cs add cscope.out
-		" else add database pointed to by environment
-		elseif $CSCOPE_DB != ""
-		    silent cs add $CSCOPE_DB
-		endif
-	]], false)
+    set csto=0
+    set cst
+    if filereadable("cscope.out")
+        silent cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        silent cs add $CSCOPE_DB
+    endif
+  ]], false
+)
 
 -- Find this C symbol
 map('n', '<C-_>s', ':cs find s <C-R>=expand("<cword>")<CR><CR>')
@@ -48,3 +54,4 @@ map('n', '<C-_>i', ':cs find i ^<C-R>=expand("<cfile>")<CR>$<CR')
 -- Find functions called by this function
 map('n', '<C-_>d', ':cs find d <C-R>=expand("<cword>")<CR><CR>')
 map('n', '<C-_>a', ':cs find a <C-R>=expand("<cword>")<CR><CR>')
+

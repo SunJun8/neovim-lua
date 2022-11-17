@@ -46,8 +46,14 @@ require('nvim-tree').setup {
   },
   filters = {
     dotfiles = true,
-    custom = { '.git', 'node_modules', '.cache', '.vscode' },
+    custom = {
+      '.git',
+      'node_modules',
+      '.cache',
+      '.vscode'
+    },
   },
+
   view = {
     width = 35,
     side = "left",

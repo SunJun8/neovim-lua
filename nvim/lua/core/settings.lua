@@ -47,11 +47,6 @@ g.sonokai_enable_italic = false
 g.sonokai_disable_italic_comment = true
 g.sonokai_transparent_background = false
 
--- g:gruvbox_material_statusline_style = 'mix'
--- g:gruvbox_material_background = 'hard'
--- g:gruvbox_material_enable_italic = 0
--- g:gruvbox_material_disable_italic_comment = 1
-
 cmd [[colorscheme sonokai]]
 
 -----------------------------------------------------------

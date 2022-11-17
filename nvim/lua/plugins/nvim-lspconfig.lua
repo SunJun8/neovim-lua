@@ -5,6 +5,8 @@
 -- Plugin: nvim-lspconfig
 -- url: https://github.com/neovim/nvim-lspconfig
 -- url: https://github.com/williamboman/nvim-lsp-installer
+-- url: https://github.com/williamboman/mason-lspconfig.nvim
+-- url: https://github.com/williamboman/mason.nvim
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -20,34 +22,37 @@ buf_set_keymap('n', '<leader>lw', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>',
 buf_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-buf_set_keymap('n', '<leader>ld', '<cmd>lua require\'lspsaga.provider\'.preview_definition()<CR>', opts)
 
 
--- Setup lspconfig by lsp-install.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lsp_installer = require("nvim-lsp-installer")
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(
-  function(server)
-    local opt = {}
-
-    -- (optional) Customize the options passed to the server
-    if server.name == "clangd" then
-      opt.cmd = {"clangd", "--background-index"}
-    end
-
-    opt.capabilities = capabilities
-
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opt)
-  end
+require("mason").setup(
+  {
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗"
+      }
+    }
+  }
 )
 
--- lspsaga
-require 'lspsaga'.setup()
+-- enable the `mason-lspconfig` plugin
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup{
+      capabilities = capabilities
+    }
+  end
+
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+}
 
 -- lspfuzzy
 require('lspfuzzy').setup()

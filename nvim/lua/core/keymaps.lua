@@ -4,11 +4,11 @@
 
 local cmd = vim.cmd     				      -- Execute Vim commands
 
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
+local function map(mode, lhs, rhs)
+  local options = {
+    noremap = true,
+    silent = true
+  }
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
@@ -73,12 +73,3 @@ cmd [[
 map('n', '<F8>', ':Files<CR>', { noremap = false })
 map('n', '<leader>fl', ':BLines<CR>')
 map('n', '<leader>fb', ':Buffers<CR>')
-
-
--- Outline
-map('n', '<F2>', ':SymbolsOutline<CR>')
-
-
-
-
-

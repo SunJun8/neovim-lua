@@ -10,7 +10,6 @@ require('nvim-treesitter.configs').setup {
     {
       "c",
       "cpp",
-      "lua",
       "python",
       "markdown",
       "make",
@@ -27,11 +26,15 @@ require('nvim-treesitter.configs').setup {
     ignore = 0
   },
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    custom_captures = {
-      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-      ["foo.bar"] = "Identifier",
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = {
+      "lua",
+      "log"
     },
+
     additional_vim_regex_highlighting = false,
   },
 

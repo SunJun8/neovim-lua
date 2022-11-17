@@ -82,10 +82,12 @@ return packer.startup(function()
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
   use 'ojroques/nvim-lspfuzzy'
-  use 'tami5/lspsaga.nvim'
   use 'nvim-lua/lsp-status.nvim'
+
+  -- LSP install
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
 
   -- Autocomplete
   use {
@@ -95,15 +97,13 @@ return packer.startup(function()
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip',
+      -- luasnip
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets'
     },
   }
-
-  -- symbol outline
-  use 'simrat39/symbols-outline.nvim'
+  -- LSP UI
 
   -- Comment
   use {
