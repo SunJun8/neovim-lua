@@ -43,9 +43,11 @@ opt.showmode = false                  -- 不显示status
 -- Neovim theme
 -----------------------------------------------------------
 g.sonokai_style = 'espresso'
+-- g.sonokai_style = 'default'
 g.sonokai_enable_italic = false
 g.sonokai_disable_italic_comment = true
 g.sonokai_transparent_background = false
+g.sonokai_diagnostic_text_highlight = false
 
 cmd [[colorscheme sonokai]]
 

@@ -10,7 +10,7 @@ local theme = require 'plugins/lualine/theme'
 
 require('lualine').setup {
     options = {
-      theme = theme,
+      theme = 'sonokai',
     },
     sections = {
       lualine_a = {'mode'},

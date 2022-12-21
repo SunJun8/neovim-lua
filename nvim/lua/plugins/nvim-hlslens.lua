@@ -5,6 +5,11 @@
 -- Plugin: hlslens
 -- url: https://github.com/kevinhwang91/nvim-hlslens
 
+require('hlslens').setup({
+    calm_down = true,
+    nearest_only = true,
+    nearest_float_when = 'always'
+})
 
 local kopts = {noremap = true, silent = true}
 
@@ -21,8 +26,3 @@ vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]]
 
 vim.api.nvim_set_keymap('n', '<Leader>n', ':noh<CR>', kopts)
 
-require('hlslens').setup({
-  calm_down = true,
-  nearest_only = true,
-  nearest_float_when = 'always'
-})
