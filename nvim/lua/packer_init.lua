@@ -125,15 +125,17 @@ return packer.startup(function()
   -- git labels
   use {
     'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
   }
 
   -- Dashboard (start screen)
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = { 'nvim-lua/plenary.nvim' },
   }
+
+  use {
+    'voldikss/vim-translator'
+  }
+
 end)
