@@ -24,7 +24,8 @@ buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities_tmp = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities_tmp.offsetEncoding = { "utf-16" }
 
 require("mason").setup(
   {
@@ -46,7 +47,7 @@ require("mason-lspconfig").setup_handlers {
   -- a dedicated handler.
   function (server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup{
-      capabilities = capabilities
+      capabilities = capabilities_tmp
     }
   end
 

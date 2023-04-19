@@ -63,11 +63,12 @@ map('n','<leader>br', ':BufferCloseBuffersRight<CR>')
 
 -- clangformat
 map('', '<leader>mm', ':py3f /home/jokeo/tool/clang/tools/clang-format/clang-format.py<CR>')
-cmd [[
-      autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-      autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-]]
 
+-- astyle
+map('', '<leader>mn', ':!astyle --style=gnu --indent=spaces=2 -K -S --max-code-length=78<CR>')
+map('', '<leader>mb', ':!astyle --style=stroustrup --indent=spaces=4 -S --max-code-length=100<CR>')
+
+map('n', '<F2>', ':%!astyle --style=gnu --indent=spaces=2 -K -S --max-code-length=78<CR>')
 
 -- FZF
 map('n', '<F8>', ':Files<CR>', { noremap = false })

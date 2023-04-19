@@ -16,23 +16,26 @@ require('nvim-treesitter.configs').setup {
       "cmake",
       "ninja",
       "go",
-      "help",
       "html",
       "java",
       "rust",
+      "vim",
     },
+
+  sync_install = false,
+
+  auto_install = true,
 
   git = {
     ignore = 0
   },
+
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
 
     -- list of language that will be disabled
     disable = {
-      "lua",
-      "log"
     },
 
     additional_vim_regex_highlighting = false,

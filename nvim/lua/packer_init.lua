@@ -19,15 +19,6 @@ local packer = require 'packer'
 return packer.startup(function()
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
-  -- Easily speed up your neovim startup time
-  use 'nathom/filetype.nvim'
-  use {
-    'lewis6991/impatient.nvim',
-    config = function()
-      require('impatient')
-    end
-  }
-
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
@@ -52,9 +43,6 @@ return packer.startup(function()
       require('nvim-autopairs').setup()
     end
   }
-
-  -- cscope fzf
-  use 'SunJun8/fzf_cscope.vim'
 
   --lastplace
   use 'farmergreg/vim-lastplace'
@@ -103,7 +91,6 @@ return packer.startup(function()
       'rafamadriz/friendly-snippets'
     },
   }
-  -- LSP UI
 
   -- Comment
   use {
@@ -137,5 +124,33 @@ return packer.startup(function()
   use {
     'voldikss/vim-translator'
   }
+
+  -- Github copilot
+  use {
+    'github/copilot.vim'
+  }
+
+  use {
+    'johnfrankmorgan/whitespace.nvim',
+    config = function ()
+        require('whitespace-nvim').setup({
+            -- configuration options and their defaults
+
+            -- `highlight` configures which highlight is used to display
+            -- trailing whitespace
+            highlight = 'DiffDelete',
+
+            -- `ignored_filetypes` configures which filetypes to ignore when
+            -- displaying trailing whitespace
+            ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help' },
+        })
+
+        -- remove trailing whitespace with a keybinding
+        vim.keymap.set('n', '<Leader>mw', require('whitespace-nvim').trim)
+    end
+  }
+
+  -- cscope
+  use 'dhananjaylatkar/cscope_maps.nvim'
 
 end)
