@@ -92,6 +92,9 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 -- automatically close the tab/vim when nvim-tree is the last window in the tabs
 cmd [[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
 
+-- specify file type
+cmd [[autocmd BufNewFile,BufRead *.defs set filetype=make]]
+
 -----------------------------------------------------------
 -- Terminal
 -----------------------------------------------------------

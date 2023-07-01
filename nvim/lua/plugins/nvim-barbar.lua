@@ -36,7 +36,7 @@ require'barbar'.setup {
   focus_on_close = 'left',
 
   -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-  hide = {extensions = true, inactive = true},
+  hide = {extensions = false, inactive = false},
 
   -- Disable highlighting alternate buffers
   highlight_alternate = false,
@@ -54,10 +54,10 @@ require'barbar'.setup {
     button = '',
     -- Enables / disables diagnostic symbols
     diagnostics = {
-      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+      [vim.diagnostic.severity.ERROR] = {enabled = false, icon = 'ﬀ'},
       [vim.diagnostic.severity.WARN] = {enabled = false},
       [vim.diagnostic.severity.INFO] = {enabled = false},
-      [vim.diagnostic.severity.HINT] = {enabled = true},
+      [vim.diagnostic.severity.HINT] = {enabled = false},
     },
     filetype = {
       -- Sets the icon's highlight group.

@@ -21,9 +21,9 @@ return packer.startup(function()
 
   -- File explorer
   use {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons'
+      'nvim-tree/nvim-web-devicons'
     },
   }
 
@@ -34,6 +34,14 @@ return packer.startup(function()
       'junegunn/fzf',
     },
     -- run = 'cd ~/.nvim-fzf && ./install --all',
+  }
+
+  use {
+    'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = {
+      'nvim-tree/nvim-web-devicons'
+    }
   }
 
   -- Autopair
@@ -117,18 +125,18 @@ return packer.startup(function()
   -- Dashboard (start screen)
   use {
     'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = { 'nvim-tree/nvim-web-devicons' },
     requires = { 'nvim-lua/plenary.nvim' },
-  }
-
-  use {
-    'voldikss/vim-translator'
   }
 
   -- Github copilot
   use {
     'github/copilot.vim'
   }
+
+  -- use {
+  --   "zbirenbaum/copilot.lua"
+  -- }
 
   use {
     'johnfrankmorgan/whitespace.nvim',

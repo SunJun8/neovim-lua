@@ -24,7 +24,7 @@ require('nvim-treesitter.configs').setup {
 
   sync_install = false,
 
-  auto_install = true,
+  auto_install = false,
 
   git = {
     ignore = 0
