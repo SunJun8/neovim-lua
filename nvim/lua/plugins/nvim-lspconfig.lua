@@ -22,6 +22,8 @@ buf_set_keymap('n', '<leader>lw', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>',
 buf_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+buf_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+buf_set_keymap('v', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
 
 local capabilities_tmp = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
