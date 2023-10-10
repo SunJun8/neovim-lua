@@ -26,13 +26,20 @@ require('nvim-tree').setup {
       }
     }
   },
+
+  git = {
+    enable = false, 
+    show_on_dirs = false, 
+    show_on_open_dirs = false, 
+    disable_for_dirs = {},
+    timeout = 400,
+  },
+
   filters = {
     dotfiles = true,
     custom = {
-      '.git',
       'node_modules',
       '.cache',
-      '.vscode'
     },
   },
 
